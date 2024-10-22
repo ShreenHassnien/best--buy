@@ -1,3 +1,6 @@
+from products import Product
+from store import Store
+
 bose = Product("Bose QuietComfort Earbuds", price=250, quantity=500)
 mac = Product("MacBook Air M2", price=1450, quantity=100)
 
@@ -10,3 +13,17 @@ mac.show()
 
 bose.set_quantity(1000)
 bose.show()
+
+# Example usage (to be placed in your main function)
+if __name__ == "__main__":
+    product_list = [
+        Product("MacBook Air M2", price=1450, quantity=100),
+        Product("Bose QuietComfort Earbuds", price=250, quantity=500),
+        Product("Google Pixel 7", price=500, quantity=250),
+    ]
+
+    store = Store(product_list)
+    active_products = store.get_all_products()
+
+    print(store.get_total_quantity())
+    print(store.order([(active_products[0], 1), (active_products[1], 2)]))
